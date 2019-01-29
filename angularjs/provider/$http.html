@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script type="text/javascript" src="../angular1.js"></script>
+<body>
+<div ng-app='app'>
+    <div ng-controller="ctrl">
+        <input type="text" ng-model="ipt">
+        <input type="text" ng-model="ipt1">
+        <button ng-click="tap()">获取数据</button>
+    </div>
+
+</div>
+</body>
+<script type="text/javascript">
+    //
+    	var app = angular.module('app',[]);
+        app.controller('ctrl',['$scope','$http',function ($scope,$http) {
+            $scope.tap = function () {
+                //1.5版本之前
+                // $http({
+                //     method:'get',
+                //     url:'a.json'
+                // }).success(function (data) {
+                //     console.log(data)
+                // })
+                // 1.5版本以后
+                // $http({
+                //     method:'get',
+                //     url:'a.json'
+                // }).then(function (data) {
+                //     console.log(data.data)
+                // },function () {})
+
+
+                $http({
+                    method:'get',
+                    params:{username:$scope.ipt,password:$scope.ipt1},
+                    url:'http://jx.xuzhixiang.top/ap/api/login.php'
+                }).then(function (data) {
+                    console.log(data)
+                },function () {})
+            }
+        }])
+</script>
+</html>

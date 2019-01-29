@@ -4,15 +4,32 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<script type="text/javascript" src="angular1.js"></script>
+<script type="text/javascript" src="../angular1.js"></script>
 <body>
 <div ng-app='app'>
+    <div ng-controller="ctrl">
 
+    </div>
 
 </div>
 </body>
 <script type="text/javascript">
     	var app = angular.module('app',[]);
+        app.controller('ctrl',['$scope','$location',function ($scope,$location) {
+            // console.log($location.absUrl());
+            // console.log($location.port());
+            // console.log($location.host());
+            // console.log($location.protocol());
+            // $location.hash('aaa');
+            // $location.path('bbb');//可以监听上一条的历史路径
+            // $location.path('bbb').replace();//可以不保留历史路径历史路径
+            // console.log($location.hash());
+            // console.log($location.path());
+            // $location.search({'aaa':'asda','aaaa':'asda'});
+            // console.log($location.search());
 
+            // $location.url('faewsgfrae');
+            // console.log($location.url())
+        }])
 </script>
 </html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .pp div {
+            height: 500px;
+        }
+
+        #as {
+            position: fixed;
+            top: 90px;
+            right: 20px;
+        }
+    </style>
+</head>
+<script type="text/javascript" src="../angular1.js"></script>
+<body>
+<div ng-app='app'>
+    <div ng-controller="ctrl">
+        <ul id="as">
+            <li ng-repeat="i in [1,2,3,4]" ng-click="tap('div'+i)">aaaaaa{{i}}</li>
+        </ul>
+        <div class="pp">
+           <div ng-repeat="i in [1,2,3,4]" ng-attr-id="div{{i}}">{{i}}</div>
+        </div>
+    </div>
+
+</div>
+</body>
+<script type="text/javascript">
+    var app = angular.module('app', []);
+    app.controller('ctrl', ['$scope', '$location','$anchorScroll',function ($scope, $location,$anchorScroll) {
+        $scope.tap = function (a) {
+            console.log(a);
+            $location.hash(a);
+            $anchorScroll()
+        }
+    }])
+</script>
+</html>

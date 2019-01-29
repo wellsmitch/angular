@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="angular.js"></script>
+</head>
+<body>
+    <div ng-app=''>
+<div ng-init='a=10'>
+<div>{{a+1}}</div>
+<div ng-init='aa="sefsae"'>{{aa}}</div>
+<div ng-init='arr=[33,2,1,2,3]'>{{arr[0]}}</div>
+<!-- 避免未渲染的数据提前显示在页面里面 -->
+<hr/>
+<div ng-bind='ad=1'></div>
+<input type="text" ng-model='ipt' name="" id="">
+<div>{{ipt}}</div>
+
+<input type="radio" name="nn" id="" value='男' ng-model='ipt1'>
+<input type="radio" name="nn" id="" value='女' ng-model='ipt1'>
+<div>{{ipt1}}</div>
+
+<select name="" id="" ng-model='ipt2'>
+    <option value='apple'>苹果</option>  
+    <option value='banana'>香蕉</option>  
+</select>
+<div>{{ipt2}}</div>
+<ul ng-init="arr='[1,5,21,31]'">
+    <li ng-repeat="(index,i) in arr track by $index">{{index}}---{{i}}</li>
+</ul>
+</div>
+    </div>
+    <div ng-app=''>
+        <div ng-init='b=10'>{{b+1}}</div>
+    </div>
+</body>
+</html>

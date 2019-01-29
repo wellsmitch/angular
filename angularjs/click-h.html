@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script src="angular1.js"></script>
+<body>
+<!-- angular v1.5.8 -->
+<div ng-app='app'>
+    <div ng-init="a=10">
+        <p>{{a}}</p>
+    </div>
+    <div ng-controller="ctrl">
+        <h2>{{b}}</h2>
+        <button ng-click="tap()">事件</button>
+    </div>
+    <script type="text/javascript">
+        // ng-app =''时候不需要angular.module('app',[])进行初始化   一旦写了就需要进行注入
+        var app = angular.module('app', []);
+        // app.controller('ctrl',function ($scope) {
+        //     $scope.b = 'hello world';
+        //     $scope.tap = function () {
+        //         alert('123')
+        //     }
+        // })
+
+
+        app.controller('ctrl',['$scope',function ($scope) {
+                $scope.b = 'hello world';
+                $scope.tap = function () {
+                    alert('123')
+                }
+        }])
+    </script>
+</div>
+
+</body>
+</html>

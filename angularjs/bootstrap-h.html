@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script src="angular1.js"></script>
+<body>
+<!-- angular v1.5.8 -->
+<div ng-app='app'>
+   <p ng-init="a=1">{{a}}</p>
+</div>
+
+<div id="app1">
+    <p ng-init="b=133333">{{b}}</p>
+</div>
+
+</body>
+
+<script type="text/javascript">
+
+    //angular.bootstrap(element,[modules],[config])
+
+    // ng-app =''时候不需要angular.module('app',[])进行初始化   一旦写了就需要进行注入
+    var app = angular.module('app', []);
+   angular.bootstrap(app1,[])//app1  相当于 document.getElementById('app1')
+
+</script>
+
+</html>

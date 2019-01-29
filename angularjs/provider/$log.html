@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script type="text/javascript" src="../angular1.js"></script>
+<body>
+<div ng-app='app'>
+    <div ng-controller="ctrl">
+
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    //
+    var app = angular.module('app',[]);
+    app.controller('ctrl',['$scope','$log',function ($scope,$log) {
+        $log.log('weqweq');
+        $log.info('weqweq');
+        $log.warn('weqweq');
+        $log.err('weqweq');
+    }])
+</script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script type="text/javascript" src="../angular1.js"></script>
+<body>
+<div ng-app='app'>
+    <div ng-controller="ctrl">
+
+    </div>
+    <div ng-controller="ctrl2">
+
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    //
+    var app = angular.module('app',[]);
+    app.controller('ctrl',['$scope','$cacheFactory',function ($scope,$cacheFactory) {
+          var myCatch = $cacheFactory('mycatch');
+            myCatch.put('name','小明');
+            myCatch.put('name','小明1');
+            myCatch.remove('name');
+            console.log(myCatch.get('name'));
+        myCatch.put('name2','小明5555');
+        // myCatch.destroy() 销毁整个缓存对象
+    }]);
+    app.controller('ctrl2',['$scope','$cacheFactory',function ($scope,$cacheFactory) {
+        var myCatch2 = $cacheFactory.get('mycatch');
+        console.log(myCatch2.get('name2'));
+        console.log(myCatch2.info())
+
+    }]);
+</script>
+</html>

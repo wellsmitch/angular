@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script type="text/javascript" src="../angular1.js"></script>
+<body>
+<div ng-app='app'>
+    <div ng-controller="ctrl">
+        <input type="text" ng-model="ipt" ng-keyup="tap()">
+    </div>
+
+</div>
+</body>
+<script type="text/javascript">
+    //
+    var app = angular.module('app',[]);
+    app.controller('ctrl',['$scope','$timeout',function ($scope,$timeout) {
+        $scope.tap = function () {
+
+          // var timer = $timeout(function () {
+          //     $timeout.cancel(timer);
+          //       console.log(3456)
+          //   },2000)
+
+        }
+    }])
+</script>
+</html>

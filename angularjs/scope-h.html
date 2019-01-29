@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script src="angular1.js"></script>
+<body>
+<!-- angular v1.5.8 -->
+<div ng-app='app' ng-controller="ctrl">
+{{str}}
+    <hr>
+
+    <button id="btn">事件</button>
+
+    <hr>
+
+    <first1></first1>
+
+    <hr>
+
+        <div second=""></div>
+    <hr>
+        <div class="three"></div>
+
+</div>
+</body>
+
+<script type="text/javascript">
+    /*自定义指令的属性
+    *  restrict  用于限定指令在html中出现的位置。（值：E只限元素名使用，A只限属性使用，C只限类名使用，M只限注释使用。默认EA）
+    *  scope:true/false/{}
+    *  replace （true/false） 使用这个属性知名template的替换方式。（replace是决定新指令在DOM中的替换方式）
+    *  controller 逻辑操作
+    *  template 指定的HTML标记替换指令内容（或指令自身template是将来要替换的html里面的内容）
+    *
+    * */
+    // ng-app =''时候不需要angular.module('app',[])进行初始化   一旦写了就需要进行注入
+    var app = angular.module('app', []);
+   console.log(app);
+    app.directive('first1',function () {
+        return {
+            restrict: 'ECMA',
+            replace:true,
+            scope:true,
+            template:'<h1>自定义<input type="text" ng-model="str">{{str}}</h1>'
+        }
+    })
+        .directive('second',function () {
+            return {
+                restrict: 'ECMA',
+                replace:true,
+                scope:false,
+                template:'<h1>自定义<input type="text" ng-model="str">{{str}}</h1>'
+            }
+        })
+        .directive('three',function () {
+            return {
+                restrict: 'ECMA',
+                replace:true,
+                scope:{},
+                template:'<h1>自定义<input type="text" ng-model="str">{{str}}</h1>'
+            }
+        })
+        .controller('ctrl',function ($scope) {
+            $scope.str = 12354
+        })
+    /*
+    * scope 为布尔值的时候  继承父级作用域  同事开辟自己的作用域
+    * true  继承父级作用域，开辟子级作用域，操作子级作用域，不影响父级作用域
+    * false 继承父级作用域，开辟子级作用域，操作子级作用域，影响父级作用域
+    * {}    不继承父级作用域，只操作子级作用域
+    *
+    *
+    * */
+
+</script>
+</html>

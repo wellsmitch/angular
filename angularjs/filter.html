@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script type="text/javascript" src="angular1.js"></script>
+<body>
+<div ng-app='app'>
+    <input type="text" ng-model="ipt">
+    <div>{{ipt}}</div>
+    <!--<h2>{{ipt | number:2}}</h2>-->
+    <!--<h2>{{ipt | lowercase}}</h2>-->
+    <!--<h2>{{ipt | uppercase}}</h2>-->
+    <!--<h2>{{ipt | currency}}</h2>-->
+    <!--<h2>{{ipt | currency:'￥'}}</h2>-->
+    <!--<h2>{{ipt | limitTo:5}}</h2>-->
+
+
+    <ul ng-init="arr=['张三','张四','李三','王2124']">
+        <li ng-repeat="i in arr | filter:ipt">{{i}}</li>
+
+    </ul>
+
+    <select ng-model="ipt1">
+        <option value="name">按名字排序</option>
+        <option value="age">按年龄排序</option>
+    </select>
+    <ul ng-init="arr1=[{name:'zhang1',age:10},{name:'王2',age:18},{name:'李三',age:20}]">
+        <li ng-repeat="i in arr1 | filter:ipt | orderBy:ipt1">{{i.name}}--{{i.age}}</li>
+
+    </ul>
+
+</div>
+</body>
+
+<script type="text/javascript">
+    	var app = angular.module('app',[])
+</script>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script src="../angular1.js"></script>
+<body>
+<!-- angular v1.5.8 -->
+<div ng-app='app'>
+   <button id="btn">事件</button>
+</div>
+</body>
+
+<script type="text/javascript">
+    //angular.bootstrap(element,[modules],[config])
+
+    // ng-app =''时候不需要angular.module('app',[])进行初始化   一旦写了就需要进行注入
+    var app = angular.module('app', []);
+   angular.element(btn).on('click',function () {
+       console.log(this);
+       angular.element(this).html(456789).css({'color':'red'})//动画如何加入  类名  及添加 自定义属性  类型 获取值？？？？？？？？？？？？
+   });
+
+</script>
+</html>

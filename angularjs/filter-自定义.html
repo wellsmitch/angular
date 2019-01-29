@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script type="text/javascript" src="angular1.js"></script>
+<body>
+<div ng-app='app'>
+    <div ng-init="str=123"></div>
+    <div>{{str | res}}</div>
+
+</div>
+</body>
+
+<script type="text/javascript">
+    	var app = angular.module('app',[]);
+    	app.filter('res',function () {
+            return function (a) {
+                return a + 'word'
+            }
+        })
+</script>
+
+</html>

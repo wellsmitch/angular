@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script type="text/javascript" src="../../angular1.js"></script>
+<body>
+<div ng-app='app'>
+    <div ng-controller="ctrl">
+
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    //
+    var app = angular.module('app',[])
+    .controller('ctrl',['$scope','myserver','server2',function ($scope,myserver,server2) {
+        // myserver.tap();
+        server2.tap();
+    }])
+    .factory('myserver',function () {
+        return {
+            name:'hello',
+            tap:function () {
+                alert(this.name)
+            }
+        }
+    })
+    .provider('server2',function () {
+        return {
+            name:'hi',
+            $get:function () {
+                return {
+                    name:this.name,
+                    tap:function () {
+                        alert(this.name)
+                    }
+                }
+            }
+        }
+    })
+    .config(['server2Provider',function (server2Provider) {
+        server2Provider.name = '小明'
+    }])
+</script>
+</html>
